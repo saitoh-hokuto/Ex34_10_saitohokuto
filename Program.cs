@@ -1,5 +1,7 @@
 ﻿using InputUtilitys;
 using ShapeSolid;
+using System.Data;
+
 namespace Interface_ShapeSolid
 {
     internal class Program
@@ -10,8 +12,15 @@ namespace Interface_ShapeSolid
                 = {
                         new Box(2, 3, 5),
                         new RightTriangularPrism(2,3,5),
-                        new Sphere(3)
+                        new Sphere(3),
+                        new Column<RectAngle>(new RectAngle(2,3),5),
+                        new Column<Hexagon>(new Hexagon(3),5)
             };
+            Column<RectAngle> box2 = new Column<RectAngle>(new RectAngle(2, 5), 3);
+
+            Column<Triangle> triangle_Prism = new Column<Triangle>(new Triangle(3, 2, 1), 4);
+            
+            Column<Hexagon> hexagonal_Prism = new Column<Hexagon>(new Hexagon(6), 5);
             foreach (ISolid solid in solids)
             {
                 Console.WriteLine($"体積={solid.Volume},表面積={solid.Surface}");
